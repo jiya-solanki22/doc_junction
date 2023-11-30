@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  {% load static %}
+  <title>DocJunction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+<!-- Add your icon image URL in the href attribute -->
+  <link rel="icon" type="image/png" href="{% static 'images/icon1.png' %}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<body>
+
+
+
+
+<nav class="navbar navbar-expand-sm justify-content-between" style="background-color:  #2F284B">
+  <ul class="navbar-nav">
+    <h4 style="padding: 1%; margin-left: 8%; margin-right: 205%">
+  <span style="color:  #2ECC71">Doc</span><span style="color:  #FF5722">Junction</span>
+</h4>
+
+    <li class="navbar-item">
+      <a class="nav-link custom-nav-item" href="{% url 'index' %}">Home</a>
+    </li>
+    <li class="navbar-item">
+      <a class="nav-link custom-nav-item" href="{% url 'about' %}">About</a>
+    </li>
+    <li class="navbar-item">
+      <a class="nav-link custom-nav-item" href="{% url 'contact' %}">Contact Us</a>
+    </li>
+    <li class="navbar-item">
+      <a class="nav-link custom-nav-item" href="{% url 'login' %}">Login</a>
+    </li>
+    <li class="navbar-item">
+      <a class="nav-link custom-nav-item" href="{% url 'login_admin' %}">Admin Login</a>
+    </li>
+  </ul>
+</nav>
+</body>
+</html>
+
+{% block body %}
+{% endblock %}

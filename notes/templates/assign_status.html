@@ -1,0 +1,82 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+<style>
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        background-color: #FFFFFF;
+        margin-top: 30px;
+        max-width: 352px;
+    }
+
+    h2 {
+        color: #FF5722;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border-color: #ced4da;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+
+<div class="container card shadow mt-5">
+    <h2 class="text-center text-danger">Assign Status</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="noteid">Notes ID</label>
+            <input type="text" name="noteid" class="form-control" value="{{ notes.id }}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" class="form-control">
+                <option value="Accept">Accepted</option>
+                <option value="Reject">Rejected</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Status Updated Successfully');
+    window.location=('{% url 'all_notes' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again');
+</script>
+{% endif %}
+
+{% endblock %}

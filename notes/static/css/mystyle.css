@@ -1,0 +1,106 @@
+.nav-link
+{
+    color: black;
+
+}
+.nav-link:hover
+{
+    color: #FF5722;
+    font-weight: bold;
+    background-color:  #2F284B  ;
+
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+.navbar-nav {
+  white-space: nowrap;
+}
+
+.navbar-item {
+  display: inline-block;
+  margin-right: 10px; /* Add space between all list items */
+}
+
+.nav-link {
+  padding: 8px 12px; /* Adjust padding to control the background size */
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+.custom-nav-item {
+  background-color:  #2F284B /* Background color for all items */
+}
+
+/* Ensure the last item has no right margin */
+.navbar-item:last-child {
+  margin-right: 0;
+}
+
+
+
+
+
+
+.image
+{
+    width: 100%;
+    height: 500px;
+    background: url({% static 'images/note10.jpg' %});
+
+}
+
+.transparentbox
+{
+    width: 100%;
+    height: 500px;
+    background-color: lightgrey;
+    border: 1px solid #CD853F;
+    opacity: 0.6;
+}
+.transparentbox p{
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: 60px;
+    font-family: 'Monotype Corsiva';
+    color:white;
+    text-align: center;
+}
+.halfcircle {
+    height: 75px;
+    width: 150px;
+    border-radius: 90px 90px 0 0;
+    margin: 0px;
+    background-color: #FF5722; /* Light green background */
+}
+
+.halfcircleBottom {
+    height: 75px;
+    width: 150px;
+    border-radius: 0 0 90px 90px;
+    margin: 0px;
+    background-color: #2F284B; /* Darker background */
+}
+
+.box1 p {
+    font-weight: bold;
+    color:white; /* Reddish text color */
+    font-family: 'Monotype Corsiva';
+    text-align: center;
+    font-size: 20px;
+}
+
+.box1 p i {
+    font-size: 30px;
+    color:white; /* Reddish icon color */
+}

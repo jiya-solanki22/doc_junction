@@ -1,0 +1,64 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<style>
+.image
+{
+    width: 100%;
+    height: 500px;
+    background-image: url({% static 'images/note10.jpg' %});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.transparentbox {
+    background-color: #2F284B;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+
+
+</style>
+<div class="image">
+    <div class="transparentbox">
+        <p class="tagline">A Pulse of Shared Knowledge</p>
+    </div>
+</div>
+
+<h4 class="text-center mt-5 mb-5" style="color: #2F284B; text-decoration: underline #FF5722; text-underline-offset: 4px; font-size: 36px;">Elevate Learning in Four Stages</h4>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="fas fa-user-circle mt-4"></i></p>
+                <p class="halfcircleBottom">Create Account</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="fas fa-sign-in-alt mt-4"></i></p>
+                <p class="halfcircleBottom">Login</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="fas fa-upload mt-4"></i></p>
+                <p class="halfcircleBottom">Upload Notes</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="fas fa-download mt-4"></i></p>
+                <p class="halfcircleBottom">Download Notes</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+{% endblock %}

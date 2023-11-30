@@ -1,0 +1,93 @@
+{% extends 'usernavigation.html'%}
+{% load static %}
+{% block body %}
+<style>
+    /* Custom CSS for View All Notes */
+    .container {
+        padding: 40px;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-danger {
+        color: #FF5722;
+    }
+
+    /* Styling the table */
+    table {
+    background-color:white;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    table th {
+        background-color: darkgrey;
+        color: #FFFFFF;
+    }
+
+    table td {
+        color: black;
+    }
+
+    /* Styling the Download button */
+    .btn-success {
+        background-color: #2ECC71;
+        border-color: #2ECC71;
+    }
+
+    .btn-success:hover {
+        background-color: #28B463;
+        border-color: #28B463;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script>
+	$(document).ready(function() {
+    	$('#example').DataTable();
+	} );
+</script>
+
+<div class="container mt-5">
+	<h2 class="text-center text-danger">View All Notes</h2>
+	<hr>
+	<table class="table table-bordered" id="example">
+		<thead>
+			<tr>
+				<th>S.No.</th>
+				<th>Uploaded By</th>
+				<th>Uploading Date</th>
+				<th>Branch</th>
+				<th>Subject</th>
+				<th>Download Notes</th>
+				<th>File Type</th>
+				<th>Description</th>
+				<!--th>Status</th-->
+				<!--th>Action</th-->
+			</tr>
+			</thead>
+		    <tbody>
+			{% for i in notes %}
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{i.user.username}}</td>
+				<td>{{i.uploadingdate}}</td>
+				<td>{{i.branch}}</td>
+				<td>{{i.subject}}</td>
+				<td><a href="{{i.notesfile.url}}" class="btn btn-success" download> Download </a></td>
+				<td>{{i.filetype}}</td>
+				<td>{{i.description}}</td>
+				<!--td>{{i.status}}</td-->
+                <!--td><a href="{% url 'delete_notes' i.id%}" class="btn btn-danger" onclick="return confirm('Do you really want to delete ?')"> Delete </a></td-->
+
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'usernavigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container mt-5" style="background-color: #e1e1e1;; padding: 20px; border-radius: 10px;">
+    <h2 class="text-center" style="color: #2F284B;">Profile</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b style="color: #2F284B;">Full Name:</b>
+        </div>
+        <div class="col-md-6" style="text-transform: capitalize; color: black;">
+            {{ data.user.first_name }} {{ data.user.last_name }}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b style="color: #2F284B;">Email ID:</b>
+        </div>
+        <div class="col-md-6" style="color: #2F284B;">
+            {{ data.user.username }}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b style="color: #2F284B;">Contact:</b>
+        </div>
+        <div class="col-md-6" style="color: #2F284B;">
+            {{ data.contact }}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b style="color: #2F284B;">Branch:</b>
+        </div>
+        <div class="col-md-6" style="color: #2F284B;">
+            {{ data.branch }}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <b style="color: #2F284B;">Role:</b>
+        </div>
+        <div class="col-md-6" style="color: #2F284B;">
+            {{ data.role }}
+        </div>
+    </div>
+    <center><a href="{% url 'edit_profile' %}" class="btn btn-primary mt-5 text-center" style="background-color: #FF5722;">Edit Profile</a></center>
+</div>
+
+{% endblock %}

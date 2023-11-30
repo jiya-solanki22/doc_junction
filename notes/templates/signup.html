@@ -1,0 +1,148 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<style>
+    /* Custom CSS for the Create Account page */
+    .container {
+        padding: 40px;
+        border-radius: 10px;
+        background-color: #2F284B;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #FFFFFF;
+    }
+
+    h2 {
+        color: #FF5722;
+        font-weight: bold;
+    }
+
+    hr {
+        border-color: #2ECC71;
+    }
+
+    p {
+        color: #FFFFFF;
+    }
+
+    label {
+        color: #FFFFFF;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select.form-control {
+        background-color: #FFFFFF;
+        color: #444444;
+    }
+
+    input[type="submit"] {
+        background-color: #FF5722;
+        color: #FFFFFF;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #E64A19;
+    }
+
+    .btn.btn-danger {
+        background-color: #2ECC71;
+        color: #FFFFFF;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .btn.btn-danger:hover {
+        background-color: #228B22;
+    }
+
+    .image{
+    width: 100%;
+    height: 50%;
+    background: url({% static 'images/login3.png' %});
+     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+</style>
+
+
+<div class="container mt-5">
+<div class="row">
+    <div class="col sm-6">
+        <h2 class="text-center">Existing Customers</h2>
+        <hr>
+        <p>Account creation enables easy note uploads, downloads, and more.</p>
+
+        <div class="image mt-2"  >
+
+        </div>
+
+        <center><a href="{% url 'login' %}" class="btn btn-danger text-white text-center mt-5">Login</a></center>
+    </div>
+    <div class="col sm-6">
+        <h2 class="text-center">Register With Us</h2>
+        <hr>
+        <p>If you don't have an account with us, please sign up...</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+                    <div class="col">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter First Name" name="firstname">
+                    </div>
+                    <div class="col">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Last Name" name="lastname">
+                    </div>
+                </div>
+            <label>Contact</label>
+
+            <input type="text" class="form-control" placeholder="Enter Contact" name="contact">
+            <label>Email ID</label>
+            <input type="email" class="form-control" placeholder="Enter Email ID" name="emailid">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="Enter Password" name="password">
+            <label>Branch</label>
+            <select class="form-control" name="branch">
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Civil">Civil</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+            <label>Are you ?</label>
+            <select class="form-control" name="role">
+                <option value="Student">Student</option>
+                <option value="Teacher">Teacher</option>
+                </select>
+           <div class="text-center  mt-4 ">
+                    <input type="submit" class="btn btn-danger" value="Submit">
+                </div>
+        </form>
+    </div>
+</div>
+</div>
+
+{% if error == "no" %}
+<script>
+	alert('Signed Up Successfully');
+	window.location = ('{% url 'login' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+	alert('Something went wrong, Try Again');
+</script>
+{% endif %}
+
+
+{% endblock %}
